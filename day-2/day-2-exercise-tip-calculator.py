@@ -19,5 +19,6 @@ else:
     bill_and_tipp = False
 
 to_pay = round((bill_and_tip / people), 2)
+#also possible to use format() function -> to_pay = "{:.2f}".format(bill_and_tip / people)
 
 print(f"Each person should pay: ${to_pay}")
