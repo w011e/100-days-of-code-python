@@ -1,7 +1,7 @@
 # name = "John"
 # print(name)
 
-# name = "Samantha"
+name = "Samantha"
 # print(name)
 
 # name = input("What is your name?")
