@@ -1,3 +1,4 @@
+#for item in list_of_items 
 fruits = ["Apple", "Peach", "Pear"]
 for fruit in fruits:
     print(fruit)
@@ -5,7 +6,7 @@ for fruit in fruits:
 #identation matters! here print(fruit) is not possible, since variable is only assigned within for loop 
 print(fruits)
 
-#range(start, not included end, step)
+#for number in range(start, not included end, step)
 total = 0 
 for number in range(1, 101):
     total += number
