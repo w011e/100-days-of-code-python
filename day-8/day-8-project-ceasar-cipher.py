@@ -1,24 +1,52 @@
-from 
-alphabet = ["a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-direction = input('Type "encode" to encrypt, type "decode" to decrypt:\n').lower()
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+from day_8_project_art import logo
+
+def caesar(text, shift, direction):
+    output = ""
+    if direction == "decode":
+        shift *= -1
+    for char in text:
+        if char in alphabet:
+            position = alphabet.index(char)
+            new_position = position + shift
+            output += alphabet[new_position]
+        else: 
+            output += char 
+    print(f"Here is the {direction}d result: {output}")
+
+print(logo)
+
+alphabet = ["a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+restart = "yes"
+while restart == "yes":
+    direction = input('Type "encode" to encrypt, type "decode" to decrypt:\n').lower()
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    shift = shift % 26      
+    caesar(text, shift, direction)
+    restart = input('Do you want to restart the cipher program? Type "yes" if you want to go again. Otherwise, type "no".\n').lower()
+if restart == "no":
+    print("Thank you for using this programme :)")
+
+
+
+#first ideas of code:
 
 # def encrypt (plain_text, shift_amount):
 #     cipher_text = ""
-#     for letter in plain_text:
-#         position = alphabet.index(letter)
+#     for char in plain_text:
+#         position = alphabet.index(char)
 #         new_position = position + shift_amount 
-#         new_letter = alphabet[new_position]
-#         cipher_text += new_letter
+#         new_char = alphabet[new_position]
+#         cipher_text += new_char
 #     print(f"The encoded text is {cipher_text}")
 # def decrypt (cipher_text, shift_amount):
 #     plain_text = ""
-#     for letter in cipher_text:
-#         position = alphabet.index(letter)
+#     for char in cipher_text:
+#         position = alphabet.index(char)
 #         new_position = position - shift_amount
-#         new_letter = alphabet[new_position]
-#         plain_text += new_letter
+#         new_char = alphabet[new_position]
+#         plain_text += new_char
 #     print(f"The decoded text is {plain_text}")
 
 # if direction == "encode":
@@ -31,28 +59,17 @@ shift = int(input("Type the shift number:\n"))
 # def caesar(text, shift, direction):
 #     output = ""
 #     if direction == "encode": 
-#         for letter in text:
-#             position = alphabet.index(letter)
+#         for char in text:
+#             position = alphabet.index(char)
 #             new_position = position + shift
-#             new_letter = alphabet[new_position]
-#             output += new_letter
+#             new_char = alphabet[new_position]
+#             output += new_char
 #         print(f"The encoded text is {output}")
 #     elif direction == "decode":
-#         for letter in text:
-#             position = alphabet.index(letter)
+#         for char in text:
+#             position = alphabet.index(char)
 #             new_position = position - shift
-#             new_letter = alphabet[new_position]
-#             output += new_letter
+#             new_char = alphabet[new_position]
+#             output += new_char
 #         print(f"The decoded text is {output}")
 # caesar(text, shift, direction)
-
-def caesar(text, shift, direction):
-    output = ""
-    if direction == "decode":
-        shift *= -1
-    for letter in text:
-        position = alphabet.index(letter)
-        new_position = position + shift
-        output += alphabet[new_position]
-    print(f"The {direction}d is {output}")
-caesar(text, shift, direction)

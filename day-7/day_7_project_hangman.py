@@ -46,3 +46,6 @@ while not end_of_game:
     
     from day_7_project_hangman_art import stages
     print(stages[lives]) 
+
+if end_of_game == True: 
+    print(f"The solution is {chosen_word}.")
