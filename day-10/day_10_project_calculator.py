@@ -26,7 +26,7 @@ operations = {
 #technique where function calls itself repeatedly to solve a problem
 #process continues until base case is reached, which stops the recursion
 #powerful for solving complex problems, but it can also be tricky to use correctly
-#Careful condition like if must be met in order to call the function within a function !
+#Careful! condition like if must be met in order to call the function within a function !
 
 def calculator():
     print(logo)
